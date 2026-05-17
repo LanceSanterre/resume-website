@@ -2,28 +2,45 @@
 
 {% block content %}
 
-<h2>{{ project.title }}</h2>
-<p>{{ project.summary }}</p>
+<div class="project-container">
 
-<h3>Tech Stack</h3>
-<div class="tech-stack">
-    {% for tech in project.tech_images %}
-        <div class="tech-item">
-            <img src="{{ url_for('static', filename=tech.image) }}">
-            <span>{{ tech.name }}</span>
+    <h1 class="project-title">{{ project.title }}</h1>
+    <p class="project-summary">{{ project.summary }}</p>
+
+    <div class="project-grid">
+
+        <!-- LEFT SIDE -->
+        <div class="project-left">
+            <h3>Highlights</h3>
+            <ul class="highlights-list">
+                {% for item in project.highlights %}
+                    <li>{{ item }}</li>
+                {% endfor %}
+            </ul>
         </div>
-    {% endfor %}
+
+        <!-- RIGHT SIDE -->
+        <div class="project-right">
+            <h3>Tech Stack</h3>
+
+            <div class="tech-stack">
+                {% for tech in project.tech_images %}
+                    <div class="tech-badge">
+                        <img src="{{ url_for('static', filename=tech.image) }}">
+                        <span>{{ tech.name }}</span>
+                    </div>
+                {% endfor %}
+            </div>
+
+            {% if project.github %}
+                <a class="btn github-btn" href="{{ project.github }}" target="_blank">
+                    View on GitHub
+                </a>
+            {% endif %}
+        </div>
+
+    </div>
+
 </div>
-
-<h3>Highlights</h3>
-<ul>
-    {% for item in project.highlights %}
-        <li>{{ item }}</li>
-    {% endfor %}
-</ul>
-
-{% if project.github %}
-    <a href="{{ project.github }}" target="_blank">GitHub</a>
-{% endif %}
 
 {% endblock %}

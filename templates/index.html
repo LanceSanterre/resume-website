@@ -2,27 +2,23 @@
 
 {% block content %}
 
-<h2>{{ content.title }}</h2>
-<p>{{ content.description }}</p>
+<div class="projects-page">
+    <h1>Featured Projects</h1>
 
-<h3>Featured Projects</h3>
+    <div class="projects-grid">
+        {% for project in projects %}
+            <div class="project-card">
+                <div>
+                    <h4>{{ project.title }}</h4>
+                    <p>{{ project.summary }}</p>
+                </div>
 
-<div class="projects-grid">
-    {% for project in projects %}
-        <div class="project-card">
-            <h4>{{ project.title }}</h4>
-            <p>{{ project.summary }}</p>
-
-            <div class="tech-stack">
-                {% for tech in project.tech_images %}
-                    <img src="{{ url_for('static', filename=tech.image) }}" title="{{ tech.name }}">
-                {% endfor %}
+                <a class="btn" href="{{ url_for('project_detail', project_id=project.id) }}">
+                    View Project
+                </a>
             </div>
-
-            <a class="btn" href="{{ url_for('project_detail', project_id=project.id) }}">
-                View Project
-        </div>
-    {% endfor %}
+        {% endfor %}
+    </div>
 </div>
 
 {% endblock %}

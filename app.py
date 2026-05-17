@@ -6,17 +6,6 @@ app = Flask(__name__)
 HOMEPAGE_PATH = "data/home_page.json"
 PROJECTS_PATH = "data/projects.json"
 
-TECH_MAP = {
-    "Python": "images/tech/python.png",
-    "Flask": "images/tech/flask.png",
-    "SQL": "images/tech/sql.png",
-    "GCP": "images/tech/gcp.png",
-    "Docker": "images/tech/docker.png",
-    "Pandas": "images/tech/pandas.png",
-    "SMTP": "images/tech/email.png",
-    "Cron": "images/tech/cron.png"
-}
-
 
 def load_projects():
     with open(PROJECTS_PATH, "r") as file:
@@ -27,63 +16,45 @@ def load_projects():
     else:
         projects = data
 
-    return format_tech_stack(projects)
-
-
-def format_tech_stack(projects):
-    for project in projects:
-        project["tech_images"] = [
-            {
-                "name": tech,
-                "image": TECH_MAP.get(tech, "images/tech/default.png")
-            }
-            for tech in project.get("tech_stack", [])
-        ]
-
-    return projects
-
+    return add_tech_images(projects)
 
 @app.route("/")
 def home():
     with open(HOMEPAGE_PATH, "r") as file:
-        index_content = json.load(file)
+        content = json.load(file)
 
-    projects_data = load_projects()
+    projects = load_projects()
 
-    featured_ids = index_content.get("featured_projects", [])
-    
+    featured_ids = content.get("featured_projects", [])
+
     featured_projects = [
-        project for project in projects_data
+        project for project in projects
         if project.get("id") in featured_ids
     ]
 
     return render_template(
         "index.html",
-        content=index_content,
+        content=content,
         projects=featured_projects
     )
 
 
 @app.route("/projects")
 def projects():
-    projects_data = load_projects()
-
     return render_template(
         "projects.html",
-        projects=projects_data
+        projects=load_projects()
     )
 
 
 @app.route("/projects/<project_id>")
 def project_detail(project_id):
-    projects_data = load_projects()
+    projects = load_projects()
 
-    project = None
-
-    for item in projects_data:
-        if item.get("id") == project_id:
-            project = item
-            break
+    project = next(
+        (item for item in projects if item.get("id") == project_id),
+        None
+    )
 
     if project is None:
         abort(404)
@@ -92,7 +63,32 @@ def project_detail(project_id):
         "project_detail.html",
         project=project
     )
+def add_tech_images(projects):
+    for project in projects:
+        project["tech_images"] = [
+            {
+                "name": tech,
+                "image": f"images/tech/{tech.lower().replace(' ', '')}.png"
+            }
+            for tech in project.get("tech", [])
+        ]
+    return projects
 
+@app.route("/resume")
+def resume():
+    return render_template("resume.html")
+
+@app.route("/education")
+def education():
+    return render_template("education.html")
+
+@app.route("/contact")
+def contact():
+    return render_template("contact.html")
+
+@app.route("/about")
+def about():
+    return render_template("about.html")
 
 if __name__ == "__main__":
     app.run(debug=True, port=5001)

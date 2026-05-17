@@ -1,11 +1,9 @@
 {
-    "name": "Lance Santerre",
     "title": "Data Scientist / Data Engineer",
-    "intro": "I build machine learning systems and data platforms focused on sports analytics.",
+    "description": "I build data-driven systems for sports analytics, including data pipelines, machine learning models, and simulation engines that turn raw data into actionable insights.",
     "featured_projects": [
-        "baseball-analytics-platform",
-        "monte-carlo-managerial-engines",
-        "pitcher-pull-model",
-        "sports-email-scheduler"
+        "sports-email-scheduler",
+        "website",
+        "pitcher-strikeout-predictions"
     ]
-}
+    }

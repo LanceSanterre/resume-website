@@ -1,0 +1,99 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="resume-container">
+
+    <section class="resume-hero">
+        <h1>Resume</h1>
+        <p>
+            Data Scientist / Data Engineer focused on sports analytics,
+            machine learning systems, data pipelines, and simulation modeling.
+        </p>
+
+        <a class="btn" href="{{ url_for('static', filename='resume/Lance_Santerre_Resume.pdf') }}" target="_blank">
+            Download Resume
+        </a>
+    </section>
+
+    <section class="resume-section">
+        <h2>Experience</h2>
+
+        <div class="resume-card">
+            <h3>Jr. Data Scientist — bet365</h3>
+            <p class="resume-meta">Denver, CO | Sept 2025 – Present</p>
+            <ul>
+                <li>Built scalable baseball analytics datasets in GCP BigQuery using Medallion Architecture.</li>
+                <li>Developed machine learning decision engines for Monte Carlo baseball simulations.</li>
+                <li>Created model pipelines from extraction through training, export, and simulation integration.</li>
+            </ul>
+        </div>
+
+        <div class="resume-card">
+            <h3>Data Engineer Intern — Lawfty</h3>
+            <p class="resume-meta">Remote | Oct 2024 – Dec 2024</p>
+            <ul>
+                <li>Built PostgreSQL and Python pipelines to transform raw inputs into ML-ready datasets.</li>
+                <li>Designed schemas to support downstream machine learning workflows.</li>
+            </ul>
+        </div>
+
+        <div class="resume-card">
+            <h3>Data Scientist Intern — Truck X</h3>
+            <p class="resume-meta">Remote | Oct 2023 – Jun 2024</p>
+            <ul>
+                <li>Built models for fleet safety, sharp-turn detection, and geofence recommendations.</li>
+                <li>Improved reproducibility using Git workflows and structured ML pipelines.</li>
+            </ul>
+        </div>
+    </section>
+
+    <section class="resume-section">
+        <h2>Featured Project Experience</h2>
+
+        <div class="resume-card">
+            <h3>MLB Pitcher Strikeout Projection</h3>
+            <p>
+                Built regression and classification models using pitcher game logs,
+                clustering, MLflow experiment tracking, FastAPI, and Streamlit.
+            </p>
+        </div>
+
+        <div class="resume-card">
+            <h3>Petri Dish Nucleus Model</h3>
+            <p>
+                Built a custom U-Net model in PyTorch for computer vision segmentation,
+                achieving strong Dice score and pixel accuracy.
+            </p>
+        </div>
+    </section>
+
+    <section class="resume-section">
+        <h2>Skills</h2>
+
+        <div class="skills-grid">
+            <div class="skill-card">
+                <h3>Languages</h3>
+                <p>Python, SQL, Go</p>
+            </div>
+
+            <div class="skill-card">
+                <h3>Machine Learning</h3>
+                <p>Scikit-Learn, PyTorch, MLflow, SparkML</p>
+            </div>
+
+            <div class="skill-card">
+                <h3>Data Engineering</h3>
+                <p>BigQuery, PostgreSQL, Airflow, PySpark</p>
+            </div>
+
+            <div class="skill-card">
+                <h3>Cloud & Tools</h3>
+                <p>GCP, AWS, GitHub, Streamlit, FastAPI</p>
+            </div>
+        </div>
+    </section>
+
+</div>
+
+{% endblock %}

@@ -1,13 +1,42 @@
-{
-    "id": "sports-email-scheduler",
-    "title": "Sports Email Scheduler",
-    "category": "Automation",
-    "summary": "Daily sports schedule pipeline that emails users when their favorite teams play.",
-    "tech_stack": ["Python", "Steamlit", "Cron", "CSV", "BeautifulSoup"],
-    "highlights": [
+[
+    {
+        "id": "sports-email-scheduler",
+        "title": "Sports Email Scheduler",
+        "summary": "A Python automation tool that emails users when their favorite teams play.",
+        "tech": ["Python","BeautifulSoup","CSV","Streamlit","Cron"],
+        "highlights": [
+        "Uses BeautifulSoup to pull game data from a website",
         "Built a lightweight ETL pipeline",
-        "Created user-team filtering logic",
-        "Automated daily email delivery with cron"
-    ],
-    "github": "https://github.com/LanceSanterre/never-miss-a-game"
+        "Filtered games by user-selected teams",
+        "Automated daily email delivery using cron",
+        "Addition of a Streamlit app to get user email and their teams",
+        "Emails the user email the games of the day and where to watch them"
+        ],
+        "github": "https://github.com/LanceSanterre/never-miss-a-game"
+    },
+    {
+        "id": "website",
+        "title": "Resume Website",
+        "summary": "A full-stack portfolio website",
+        "tech": ["Python","Flask"],
+        "highlights": [
+            "Designed and built a Flask-based portfolio website with dynamic project pages powered by JSON data"
+                ],
+        "github": "https://github.com/LanceSanterre/resume-website"
+    },
+    {
+        "id": "pitcher-strikeout-predictions",
+        "title": "MLB Pitcher Strikeout Prediction System",
+        "summary": "An end-to-end sports analytics pipeline that scrapes MLB pitcher and opponent data, engineers model-ready features, and generates daily strikeout predictions using regression and classification models.",
+        "tech": ["Python", "Selenium", "Pandas", "Scikit", "FastAPI", "Streamlit"],
+        "highlights": [
+            "Built a daily pipeline for predicting MLB starting pitcher strikeouts",
+            "Scraped pitcher game logs and advanced statistics from Baseball Reference and Baseball Savant",
+            "Combined pitcher, team, and matchup features into model-ready datasets",
+            "Trained regression models to predict strikeout totals",
+            "Trained classification models to predict strikeout outcome categories",
+            "Created app interfaces using Streamlit and FastAPI for prediction access"
+        ],
+        "github": "https://github.com/LanceSanterre/Pitcher-Strikeout-Predictions"
     }
+    ]
