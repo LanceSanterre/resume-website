@@ -1,0 +1,36 @@
+[
+    {
+        "id": "baseball-analytics-platform",
+        "title": "Baseball Analytics Data Platform",
+        "description": "Built a scalable BigQuery warehouse for MLB data.",
+        "tech": ["Python", "BigQuery", "GCP"],
+        "github": ""
+    },
+    {
+        "id": "monte-carlo-managerial-engines",
+        "title": "Monte Carlo Managerial Engines",
+        "description": "ML-driven decision engines for baseball simulation.",
+        "tech": ["Python", "Scikit-learn", "Go"],
+        "github": ""
+    },
+    {
+        "id": "pitcher-pull-model",
+        "title": "Pitcher Pull Prediction Model",
+        "description": "Predicts when a pitcher should be pulled.",
+        "tech": ["Python", "Pandas", "ML"],
+        "github": ""
+    },
+    {
+        "id": "sports-email-scheduler",
+        "title": "Sports Email Scheduler",
+        "description": "Built an automated system that checks whether a user's favorite teams are playing each day and emails them the game time if they are scheduled to play.",
+        "tech": ["Python", "BeautifulSoup", "Cron", "Streamlit"],
+        "highlights": [
+        "Used sports schedule data to identify whether selected teams play on a given day.",
+        "Built an automated email notification system using Python and SMTP.",
+        "Scheduled the script to run daily so users receive game-time updates automatically.",
+        "Created a simple interface for users to manage favorite teams and email preferences."
+        ],
+        "github": "https://github.com/LanceSanterre/never-miss-a-game"
+    }
+]
