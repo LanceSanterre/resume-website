@@ -1,37 +1,29 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>{{ project.title }}</title>
-</head>
-<body>
+{% extends "base.html" %}
 
-    <a href="/projects">← Back to Projects</a>
+{% block content %}
 
-    <h1>{{ project.title }}</h1>
+<h2>{{ project.title }}</h2>
+<p>{{ project.summary }}</p>
 
-    <p>{{ project.description }}</p>
+<h3>Tech Stack</h3>
+<div class="tech-stack">
+    {% for tech in project.tech_images %}
+        <div class="tech-item">
+            <img src="{{ url_for('static', filename=tech.image) }}">
+            <span>{{ tech.name }}</span>
+        </div>
+    {% endfor %}
+</div>
 
-    <h3>Tech Stack</h3>
-    <ul>
-        {% for tech in project.tech %}
-            <li>{{ tech }}</li>
-        {% endfor %}
-    </ul>
+<h3>Highlights</h3>
+<ul>
+    {% for item in project.highlights %}
+        <li>{{ item }}</li>
+    {% endfor %}
+</ul>
 
-    <h3>Highlights</h3>
-    <ul>
-        {% for item in project.highlights %}
-            <li>{{ item }}</li>
-        {% endfor %}
-    </ul>
+{% if project.github %}
+    <a href="{{ project.github }}" target="_blank">GitHub</a>
+{% endif %}
 
-    {% if project.github %}
-        <p>
-            <a href="{{ project.github }}" target="_blank">
-                View on GitHub
-            </a>
-        </p>
-    {% endif %}
-
-</body>
-</html>
+{% endblock %}
